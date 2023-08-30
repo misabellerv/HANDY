@@ -1,5 +1,6 @@
 import os
 import shutil
+import random
 
 # source dir
 original_data_dir = 'C:\\Users\\Isabelle\\Desktop\\HANDY\\data'
@@ -22,6 +23,8 @@ test_split = 0.15
 for category in ['offensive', 'notoffensive']:
     category_dir = os.path.join(original_data_dir, category)
     image_list = os.listdir(category_dir)
+    random.shuffle(image_list)  # shuffle the images 
+
     num_images = len(image_list)
 
     num_train = int(train_split * num_images)
